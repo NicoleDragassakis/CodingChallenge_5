@@ -1,6 +1,6 @@
 //basic Setup
 //initialize with provided data
-
+//TASK ONE
 const inventory = [
 
 { name: 'Espresso', price: 3, quantity: 10 },
@@ -9,6 +9,8 @@ const inventory = [
     
 { name: 'Cappuccino', price: 4, quantity: 6 },
     
-{ name: 'Mocha', price: 5, quantity: 4 }
+{ name: 'Mocha', price: 5, quantity: 4 },
+
+{ name: 'Pumpkin Spice Latte', price: 6, quantity: 8 }
     
 ];
