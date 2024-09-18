@@ -1,6 +1,9 @@
 //basic Setup
 //initialize with provided data
+
 //TASK ONE
+console.log("Task One:"); //add for better console readability
+
 const inventory = [
 
 { name: 'Espresso', price: 3, quantity: 10 },
@@ -14,3 +17,8 @@ const inventory = [
 { name: 'Pumpkin Spice Latte', price: 6, quantity: 8 }
     
 ];
+console.log(inventory);
+
+//TASK TWO
+console.log("Task Two:"); //add for better console readability
+let orders = [];
