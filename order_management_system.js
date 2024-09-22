@@ -44,22 +44,24 @@ if (product){
 }
 
 });
-
-orders.push ({
+const order = {
     customer:customerName,
     products:itemsSelected,
-    orderstatus:status
-});
-console.log({customerName},itemsSelected);
+    orderstatus:status || "Pending"
+};
+
+orders.push(order);
+console.log(customerName,order);
+return order.orderstatus;
 }
 //to test function
     placeOrder("Jessie", [
         {name:"Mocha", quantity: 1 }
-    ],"Pending" ); //enough quantity
+    ], ); //enough quantity
 
 placeOrder("Gabby", [
         {name:"Mocha", quantity: 19 }
-    ],"Pending" ); //not enough quantity
+    ], ); //not enough quantity
     
 //TASK FOUR
 
@@ -75,9 +77,29 @@ function calculateOrderTotal(itemsSelected) {
     },0); //if you dont include the zero it is broken?
 }
 
-//testing function here
+//testing function 
 let order =[
     { name:"Mocha", quantity:1}
 ];
 
 console.log("Total:", calculateOrderTotal(order)); //outputs 5 
+
+//TASK FIVE
+
+console.log("Task Five:");
+
+function completeOrder(ordersCustomerName){
+    const order = orders.find(order => order.customer === ordersCustomerName && order.orderstatus === "Pending"); //finds the order and checks order status
+        if(!order){
+            console.log(ordersCustomerName,", Order Not Found"); //to log an error if there is no order found
+            return;
+        }
+        order.orderststus= "completed";
+        console.log(ordersCustomerName, order, "Order completed:",{
+            customer: order.customer
+        });
+        return order.orderstatus;
+    }
+
+completeOrder("Jessie"); //when order is found
+completeOrder("Joan");//when order is not found
