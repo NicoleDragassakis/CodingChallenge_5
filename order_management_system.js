@@ -20,5 +20,41 @@ const inventory = [
 console.log(inventory);
 
 //TASK TWO
+
 console.log("Task Two:"); //add for better console readability
+
 let orders = [];
+
+//TASK THREE
+
+console.log("Task Three:");//add for better console readability
+
+function placeOrder(customerName, itemsSelected, status){
+for (let item of itemsSelected){
+    const product = inventory.find (product => product.name === item.name);
+    if (!product){
+        console.log (item.name, "Item Does Not Exisit");
+        return;
+    }
+};
+
+itemsSelected.forEach(item => {
+const product = inventory.find(product => product.name === item.name);
+
+if(product) {
+product.quantity -= item.quantity;
+}
+
+});
+
+orders.push ({
+    customer:customerName,
+    products:itemsSelected,
+    orderstatus:status
+});
+console.log({customerName},itemsSelected);
+}
+
+    placeOrder("Jessie", [
+        {name:"Mocha", quantity: 1 }
+    ],"Pending" );
