@@ -21,8 +21,6 @@ console.log(inventory);
 
 //TASK TWO
 
-console.log("Task Two:"); //add for better console readability
-
 let orders = [];
 
 //TASK THREE
@@ -32,17 +30,17 @@ console.log("Task Three:");//add for better console readability
 function placeOrder(customerName, itemsSelected, status){
 for (let item of itemsSelected){
     const product = inventory.find (product => product.name === item.name);
-    if (!product){
-        console.log (item.name, "Item Does Not Exisit");
+    
+    if(product.quantity < item.quantity){
+        console.log(item.name,", Insufficent quantity availiable"); //when there is not enough product in stock
         return;
     }
 };
 
 itemsSelected.forEach(item => {
 const product = inventory.find(product => product.name === item.name);
-
-if(product) {
-product.quantity -= item.quantity;
+if (product){
+    product.quantity -= item.quantity;
 }
 
 });
@@ -54,7 +52,32 @@ orders.push ({
 });
 console.log({customerName},itemsSelected);
 }
-
+//to test function
     placeOrder("Jessie", [
         {name:"Mocha", quantity: 1 }
-    ],"Pending" );
+    ],"Pending" ); //enough quantity
+
+placeOrder("Gabby", [
+        {name:"Mocha", quantity: 19 }
+    ],"Pending" ); //not enough quantity
+    
+//TASK FOUR
+
+console.log("Task Four:");//add for better console readability
+
+function calculateOrderTotal(itemsSelected) {
+    return itemsSelected.reduce((total, item) => {
+        const product = inventory.find(product => product.name === item.name); //identifies the products in the order
+        if (product) {
+            return total + (product.price * item.quantity); //calculates the total
+        }
+        return total;
+    },0); //if you dont include the zero it is broken?
+}
+
+//testing function here
+let order =[
+    { name:"Mocha", quantity:1}
+];
+
+console.log("Total:", calculateOrderTotal(order)); //outputs 5 
