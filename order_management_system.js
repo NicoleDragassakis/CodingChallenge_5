@@ -103,3 +103,31 @@ function completeOrder(ordersCustomerName){
 
 completeOrder("Jessie"); //when order is found
 completeOrder("Joan");//when order is not found
+
+//TASK SIX
+
+console.log("Task Six:");
+
+function checkPendingOrders(orders){
+        orders.forEach(order => { //for each will iterate over the orders array
+        if (order.orderstatus==="Pending"){ //checks if the order is pending
+          console.log("Pending order for:",order.customer);//console log if it is pending
+        }
+    });
+}
+
+
+
+//testing function 
+placeOrder("Jessie", [
+    {name:"Mocha", quantity: 1 }
+], );
+
+placeOrder("Jonas", [
+    {name:"Pumpkin Spice Latte", quantity: 3 }
+], );
+
+placeOrder("Nicole", [
+    {name:"Latte", quantity: 1 }
+], ); 
+checkPendingOrders(orders);//outputs pending order for jessie,jonas, and nicole
